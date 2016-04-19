@@ -1,0 +1,15 @@
+<!-- Rough mockup of add_menu view -->
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Add Menu</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="#">
+    <p>Name: <input type="text" name="menu_name"></p>
+    <p><input type="radio" name="menu_type" value="voice" checked="checked">Voice
+    <input type="radio" name="menu_type" value="robo">Robot</p>
+    <p><input type="text" name="url-or-message"></p>
+    <p>If you have selected voice, please enter the url. Otherwise, type our your message.</p>
+    <input type="submit" name="submit">
+  </form>
+ 
+{% endblock %}

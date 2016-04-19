@@ -5,6 +5,7 @@ create table entries (
 	text text not null
 );
 
+/* Not yet in use */
 create table directories (
 	id integer primary key autoincrement,
 	name text not null,
