@@ -1,10 +1,12 @@
 # Open Phone Tree
 # cthare
 
+import os
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
 	 abort, render_template, flash
 from contextlib import closing
+import twilio.twiml
 
 
 # application start
@@ -99,7 +101,31 @@ def add_number():
 	#entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
 	return render_template('add_number.html')
 
+# Pseudo-code phone listen
+# @app.route('/listen/<menu>', methods=['GET', 'POST'])
+# def menu_listen(menu):
+# 	resp = twilio.twiml.Response()
+	
+# 	with resp.gather(numDigits=1, action="/handle-menu", method="POST") as g:
+# 		if menu[x] == 'voice':
+# 			g.play(menu.url)
+# 		else:
+# 			g.say(menu.robo)
 
+# 	return str(resp)
+
+# Pseudo-code phone handler
+# @app.route('/handler/<menu>', methods=['GET', 'POST'])
+# def handle_menu(menu):
+# 	digit_pressed = request.values.get('Digits', None)
+# 	resp = twilio.twiml.Response()
+# 	if digit_pressed not in menu:
+# 		return redirect('/wrong-entry')
+# 	elif menu[digit_pressed].type == "phoneNumber":
+# 		resp.dial(menu[digit_pressed].number)
+# 		return resp
+# 	else:
+# 		redirect('/listen/' + menu[digit_pressed].menuId)
 
 if __name__ == '__main__':
 	app.run()
