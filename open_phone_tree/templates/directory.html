@@ -1,0 +1,21 @@
+<!-- Rough mockup of directory view -->
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Directory</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <ol>
+  	<li>General Office (123-456-7890)</li>
+  	<li>Accounting</li>
+	  	<ol>
+	  		<li>AR (123-456-7891)</li>
+	  		<li>AR (123-456-7892)</li>
+  			<ul>
+  				<li>Add new menu or number?</li>
+  			</ul>
+	  	</ol>
+  	<ul>
+  		<li>Add new menu or number?</li>
+  	</ul>
+  </ol>
+  
+{% endblock %}
